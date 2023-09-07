@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>UserFit Table Form</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-dark {
+      background-color: #333;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fitness Tracker By the People</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <h2>Workout Table Form</h2>
+    <li><a href="http://localhost:3000/api/v1/fitness_tracker/workout">View all Workouts</a></li>
+    <div class="form-container">
+        <form id="workout-userid-form">
+          <label for="user_id"><li>Search Workout By User ID:</li></label>
+          <input type="text" id="workout_user_id" name="workout_user_id">
+          <p> </p>
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+      </div>
+  
+      <div class="form-container">
+        <form id="workouts-date-form">
+          <label for="workout_date"><li>Search Workouts By Date:</li></label>
+          <input type="text" id="workout_date" name="workout_date" placeholder="yyyy-mm-dd" pattern="\d{4}-\d{2}-\d{2}">
+          <p> </p>
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+      </div>
+  
+      <div class="form-container">
+        <form id="workout-exerciseid-form">
+          <label for="exercise_id"><li>Search Workout By Exercise ID:</li></label>
+          <input type="text" id="workout_exercise_id" name="workout_exercise_id">
+          <p> </p>
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+      </div>
+      </ul>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+      <script>
+        $(document).ready(function() {
+          $('#workout-userid-form').submit(function(event) {
+            event.preventDefault();
+            const workout_userid = $('#workout_user_id').val();
+            window.location.href = `/api/v1/fitness_tracker/workout/wid/${workout_userid}`;
+          });
+        });
+      </script>
+  
+      <script>
+        $(document).ready(function() {
+          $('#workouts-date-form').submit(function(event) {
+            event.preventDefault();
+            const workout_date = $('#workout_date').val();
+            window.location.href = `/api/v1/fitness_tracker/workout/date/${workout_date}`;
+          });
+        });
+      </script>
+  
+      <script>
+        $(document).ready(function() {
+          $('#workout-exerciseid-form').submit(function(event) {
+            event.preventDefault();
+            const workout_exerciseid = $('#workout_exercise_id').val();
+            window.location.href = `/api/v1/fitness_tracker/workout/w_eid/${workout_exerciseid}`;
+          });
+        });
+      </script>
+  </div>
+  
+  <footer>
+    <p>&copy; 2023 Fitness Tracker. All rights reserved.</p>
+  </footer>
+</body>
+</html>

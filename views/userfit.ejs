@@ -1,0 +1,40 @@
+<!-- userfit.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>FITNESS TRACKER API - Userfit</title>
+</head>
+<body style="background-color: #222222; color: white;">
+  <h1 class="text-center">Fitness Tracker - Userfit</h1>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">User ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Height</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Birth Date</th>
+        <th scope="col">Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% userfit.forEach((users) => { %>
+        <tr>
+          <td><%= users.user_id %></td>
+          <td><%= users.username %></td>
+          <td><%= users.email %></td>
+          <td><%= users.height %></td>
+          <td><%= users.weight %></td>
+          <td><%= users.birth_date.toDateString() %></td>
+          <td><%= users.gender %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

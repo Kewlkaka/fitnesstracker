@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>UserFit Table Form</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-dark {
+      background-color: #333;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fitness Tracker By the People</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <!-- Add more links for other tables as needed -->
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <h2>Workout Exercise Table Form</h2>
+    <ul>
+        <li><a href="http://localhost:3000/api/v1/fitness_tracker/workoutexercise">View all Workouts</a></li>
+    
+        <div class="form-container">
+        <li>
+          <form id="workoutexercise-sets-form">
+            <label for="sets">Search via Number of Sets:</label>
+            <input type="text" id="workoutexercise_sets" name="workoutexercise_sets">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+        </div>
+    
+        <div class="form-container">
+          <li>
+            <form id="workoutexercise-reps-form">
+              <label for="reps">Search via Number of Reps:</label>
+              <input type="text" id="workoutexercise_reps" name="workoutexercise_reps">
+              <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+          </li>
+          </div>
+    
+          <div class="form-container">
+            <li>
+              <form id="workout-wid_eid-form">
+                <label for="the_form">Search via Workout ID and Exercise ID:</label>
+                <label for="w_id">Workout ID:</label>
+                <input type="text" id="w_id" name="w_id">
+                <label for="e_id">Exercise ID:</label>
+                <input type="text" id="e_id" name="e_id">
+                <button type="submit" class="btn btn-dark">Submit</button>
+              </form>
+            </li>
+            </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+        <script>
+          $(document).ready(function() {
+            $('#workoutexercise-sets-form').submit(function(event) {
+              event.preventDefault();
+              const workout_sets = $('#workoutexercise_sets').val();
+              window.location.href = `/api/v1/fitness_tracker/workoutexercise/sets/${workout_sets}`;
+            });
+          });
+        </script>
+        <script>
+        $(document).ready(function() {
+        $('#workoutexercise-reps-form').submit(function(event) {
+          event.preventDefault();
+          const workout_reps = $('#workoutexercise_reps').val();
+          window.location.href = `/api/v1/fitness_tracker/workoutexercise/reps/${workout_reps}`;
+        });
+       });
+      </script>
+    
+      <script>
+      $(document).ready(function() {
+        $('#workout-wid_eid-form').submit(function(event) {
+          event.preventDefault();
+          const workout_id = $('#w_id').val();
+          const exercise_id = $('#e_id').val();
+          window.location.href = `/api/v1/fitness_tracker/workoutexercise/wid_eid/${workout_id}/${exercise_id}`;
+        });
+      });
+    </script>
+      </ul>
+  </div>
+  
+  <footer>
+    <p>&copy; 2023 Fitness Tracker. All rights reserved.</p>
+  </footer>
+</body>
+</html>

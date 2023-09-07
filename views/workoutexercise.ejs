@@ -1,0 +1,43 @@
+<!-- workoutexercise.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>FITNESS TRACKER API - Workout</title>
+</head>
+<body style="background-color: #222222; color: white;">
+  <h1 class="text-center">Fitness Tracker - WorkoutExercise</h1>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Workout ID</th>
+        <th scope="col">Exercise ID</th>
+        <th scope="col">Sets</th>
+        <th scope="col">Reps</th>
+        <th scope="col">Weight</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% workoutexercise.forEach((workoute) => { %>
+        <tr>
+          <td><%= workoute.workout_id %></td>
+          <td><%= workoute.exercise_id %></td>
+          <td><%= workoute.sets %></td>
+          <td><%= workoute.reps %></td>
+          <td><%= workoute.weight %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</body>
+</html>

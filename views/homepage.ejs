@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!--<link rel="stylesheet" href="styles.css">-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>FITNESS TRACKER API</title>
+</head>
+<style>
+  body {
+    background-color: #ffcba4;
+    color: white;
+  }
+
+  .form-container {
+    margin-bottom: 20px;
+  }
+
+  .form-container:last-child {
+    margin-bottom: 0;
+  }
+
+  .card {
+    background-color: #000000;
+    color: white;
+  }
+
+  .hero-section {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    color: #aaaaaa;
+    margin-bottom: 20px;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .query-card {
+    background-color: #333333;
+    color: white;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .query-card:hover {
+    transform: scale(1.05);
+  }
+
+  .query-card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .query-card-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .query-card-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .query-card-button1 {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .query-card-button:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<body style="background-color: #222222; color: white;">
+  <!--<h1 class="text-center">Welcome to Fitness Tracker API!</h1>-->
+  <h2 class="text-center">
+    Fitness Tracker
+    <small class="text-body-secondary">By The People</small>
+  </h2>
+
+
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card mt-5">
+          <figure class="text-center">
+          </figure>
+          <div class="card-body">
+            <h5 class="card-title">Fitness Tracker Database</h5>
+            <p class="card-text">Our database stores all your fitness-related data, including workouts, exercise and
+              workout information, and progress tracking. With the Fitness Tracker API, you can easily manage and
+              analyze your fitness journey. Here are some benefits of using our database:</p>
+            <ul>
+              <li>Track your workouts and monitor your progress over time</li>
+              <li>Set goals and derive personalized recommendations</li>
+              <li>View comprehensive reports and insights</li>
+              <li>Connect with other fitness enthusiasts and share your achievements</li>
+            </ul>
+            <p>Scroll below to explore:</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p> </p>
+    <p>Please choose from the many options below</p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">User Table</h5>
+            <p class="card-text">Manage user information.</p>
+            <a href="/read-queries/userfitform" class="btn btn-primary">View User Table</a>
+            <a href="insert-queries/adduserfitform" class="btn btn-success">Add User</a>
+            <p> </p>
+            <a href="update-queries/updateuserfitform" class="btn btn-outline-primary">Update User</a>
+            <a href="delete-queries/deleteuserfitform" class="btn btn-outline-primary">Delete User</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Exercise Table</h5>
+            <p class="card-text">Manage exercises.</p>
+            <a href="/read-queries/exercisesform" class="btn btn-primary">View Exercise Table</a>
+            <a href="insert-queries/addexercisesform" class="btn btn-success">Add Exercise</a>
+            <p> </p>
+            <a href="update-queries/updateexerciseform" class="btn btn-outline-primary">Update Exercise</a>
+            <a href="delete-queries/deleteExercisesform" class="btn btn-outline-primary">Delete Exercise</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Workout Table</h5>
+            <p class="card-text">Manage workout information.</p>
+            <a href="/read-queries/workoutform" class="btn btn-primary">View Workout Table</a>
+            <a href="insert-queries/addworkoutform" class="btn btn-success">Add Workout</a>
+            <p> </p>
+            <a href="update-queries/updateworkoutform" class="btn btn-outline-primary">Update Workout</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Workout Exercise Table</h5>
+            <p class="card-text">Manage workout exercise details.</p>
+            <a href="/read-queries/workoutexerciseform" class="btn btn-primary">View Workout Exercise Table</a>
+            <p> </p>
+            <a href="insert-queries/addworkoutexerciseform" class="btn btn-success">Add Workout Exercise</a>
+            <p> </p>
+            <a href="update-queries/updateworkoutexerciseform" class="btn btn-outline-primary">Update Workout
+              Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="text-center"><b>You may now Unlock True Potential Using Data Above:</b></p>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card-deck">
+        <div class="card mb-4 query-card">
+          <div class="card-body">
+            <h2 class="query-card-title">Personal Workout Details</h2>
+            <p class="query-card-description">Get a full fledged report on the workouts you have performed since
+              joining.</p>
+            <a href="/join-queries/userWorkoutDetailsForm" class="query-card-button">View</a>
+          </div>
+        </div>
+        <div class="card mb-4 query-card">
+          <div class="card-body">
+            <h3 class="query-card-title">Workout for Favorite Exercise</h3>
+            <p class="query-card-description">Educate yourself on exercises users have incorporated in workouts and what
+              works.</p>
+            <a href="/join-queries/exerciseWorkoutExerciseDetailsForm" class="query-card-button">Find Workout</a>
+          </div>
+        </div>
+        <div class="card mb-4 query-card">
+          <div class="card-body">
+            <h2 class="query-card-title">Total Workouts</h2>
+            <p class="query-card-description">How many workouts have you performed since joining. Find out here!</p>
+            <p> </p>
+            <a href="/join-queries/totalUserWorkoutsForm" class="query-card-button">Total Workout</a>
+          </div>
+        </div>
+        <div class="card mb-4 query-card">
+          <div class="card-body">
+            <h2 class="query-card-title">Total Exercises</h2>
+            <p class="query-card-description">See all the exercises we have in our database</p>
+            <a href="/join-queries/totalExercises" class="query-card-button1">Total Exercises</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.query-card-button1').click(function (event) {
+        event.preventDefault();
+        const href = $(this).attr('href');
+        window.location.href = "/api/v1/fitness_tracker/join-queries/totalExercises";
+      });
+    });
+  </script>
+  </div>
+
+  <p class="text-center"><b>Get Technical:</b></p>
+
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div class="card-deck">
+        <div class="card mb-4 query-card">
+          <div class="card-body">
+            <h2 class="query-card-title">Calculate your BMI</h2>
+            <p class="query-card-description">BMI is an estimate of body fat and a good gauge of your risk for diseases.
+            </p>
+            <a href="/calculative-queries1/calculateBmiForm" class="query-card-button">Calculate BMI</a>
+          </div>
+        </div>
+        <div class="card mb-4 query-card">
+          <div class="card-body">
+            <h2 class="query-card-title">Calculate Total Calories Burned</h2>
+            <p class="query-card-description">Plan your nutrition or modify your workout based on how much you've
+              burned.</p>
+            <a href="/calculative-queries1/totalCaloriesBurnedForm" class="query-card-button">Calculate Total Calories
+              Burned</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

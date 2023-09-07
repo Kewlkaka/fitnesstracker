@@ -1,0 +1,29 @@
+<!-- calculateBmi.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>FITNESS TRACKER API - BMI Calculator</title>
+</head>
+<body style="background-color: #222222; color: white;">
+  <h1 class="text-center">Fitness Tracker - Calculate BMI</h1>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>BMI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach((row) => { %>
+        <tr>
+            <td><%= row.username %></td>
+            <td><%= row.bmi %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

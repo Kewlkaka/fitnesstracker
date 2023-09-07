@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fitness Tracker - User Data</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fitness Tracker - User Data</h1>
+  <% if (userfit.length > 0) { %>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Height (cm)</th>
+        <th>Weight (kg)</th>
+      </tr>
+      <% userfit.forEach(function(user) { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.age %></td>
+          <td><%= user.height %></td>
+          <td><%= user.weight %></td>
+        </tr>
+      <% }); %>
+    </table>
+  <% } else { %>
+    <p>No users found.</p>
+  <% } %>
+</body>
+</html>

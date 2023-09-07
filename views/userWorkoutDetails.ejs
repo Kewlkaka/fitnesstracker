@@ -1,0 +1,34 @@
+<!-- userWorkoutDetails.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>FITNESS TRACKER API - Userfit</title>
+</head>
+<body style="background-color: #222222; color: white;">
+  <h1 class="text-center">Fitness Tracker - Workout History</h1>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+          <th>Username</th>
+          <th>Workout Date</th>
+          <th>Workout Duration</th>
+          <th>Exercise Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach((row) => { %>
+        <tr>
+          <td><%= row.username %></td>
+          <td><%= row.workout_date.toDateString() %></td>
+          <td><%= row.workout_duration %></td>
+          <td><%= row.exercise_name %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

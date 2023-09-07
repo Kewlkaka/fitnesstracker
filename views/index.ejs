@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!--<link rel="stylesheet" href="styles.css">-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>FITNESS TRACKER API</title>
+</head>
+<style>
+  body {
+    background-color: #222222;
+    color: white;
+  }
+
+  .form-container {
+    margin-bottom: 20px;
+    /* Adjust the margin bottom as per your preference */
+  }
+
+  .form-container:last-child {
+    margin-bottom: 0;
+    /* Remove margin bottom from the last form to avoid extra space */
+  }
+
+  .card {
+    background-color: #000000;
+    color: white;
+  }
+</style>
+
+<body style="background-color: #222222; color: white;">
+  <!--<h1 class="text-center">Welcome to Fitness Tracker API!</h1>-->
+  <h2 class="text-center">
+    Fitness Tracker
+    <small class="text-body-secondary">By The People</small>
+  </h2>
+
+
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card mt-5">
+          <figure class="text-center">
+            <blockquote class="blockquote">
+              <p>A Szabist Project.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              Made by <cite title="Source Title">Reyan Tariq</cite>
+            </figcaption>
+          </figure>
+          <div class="card-body">
+            <h5 class="card-title">Fitness Tracker Database</h5>
+            <p class="card-text">Our database stores all your fitness-related data, including workouts, nutrition
+              information, and progress tracking. With the Fitness Tracker API, you can easily manage and analyze your
+              fitness journey. Here are some benefits of using our database:</p>
+            <ul>
+              <li>Track your workouts and monitor your progress over time</li>
+              <li>Record your daily nutrition and track calorie intake</li>
+              <li>Set goals and receive personalized recommendations</li>
+              <li>View comprehensive reports and insights</li>
+              <li>Connect with other fitness enthusiasts and share your achievements</li>
+            </ul>
+            <p>Scroll below to explore:</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p> </p>
+    <p>Please choose from the many options below</p>
+
+    <h4 text-align="left">Read Queries For UserFit Table</h4>
+    <p> Below You can make use of our read queries to keep track of other users and their progress</p>
+
+    <ul>
+
+      <li><a href="http://localhost:3000/api/v1/fitness_tracker">View all fitness trackers</a></li>
+
+
+      <div class="form-container">
+
+        <li>
+          <form id="userfit-id-form">
+            <label for="user_id">Search By your User ID:</label>
+            <input type="text" id="user_id" name="user_id">
+            <button type="submit" class="btn btn-dark">Submit</button>
+            <!--<button type="submit">Submit</button>-->
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="userfit-username-form">
+            <label for="userfit-username">Search By your Username:</label>
+            <input type="text" id="userfit-username" name="username">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="userfit-email-form">
+            <label for="userfit-email">Search By Email:</label>
+            <input type="text" id="userfit-email" name="email">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="userfit-gender-form">
+            <label for="userfit-gender">Search By Gender:</label>
+            <input type="text" id="userfit-gender" name="gender">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="userfit-height-form">
+            <label for="height-search">Search By Height:</label>
+            <label for="minHeight">Minimum Height:</label>
+            <input type="number" id="minHeight" name="minHeight">
+            <label for="maxHeight">Maximum Height:</label>
+            <input type="number" id="maxHeight" name="maxHeight">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="userfit-weight-form">
+            <label for="Weight-search">Search By Weight:</label>
+            <label for="minWeight">Minimum Weight:</label>
+            <input type="number" id="minWeight" name="minHeight">
+            <label for="maxWeight">Maximum Weight:</label>
+            <input type="number" id="maxWeight" name="maxWeight">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('#userfit-id-form').submit(function (event) {
+          event.preventDefault();
+          const user_id = $('#user_id').val();
+          window.location.href = `/api/v1/fitness_tracker/userfit/id/${user_id}`;
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#userfit-username-form').submit(function (event) {
+          event.preventDefault();
+          const username = $('#userfit-username').val();
+          window.location.href = `/api/v1/fitness_tracker/userfit/username/${username}`;
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#userfit-email-form').submit(function (event) {
+          event.preventDefault();
+          const email = $('#userfit-email').val();
+          window.location.href = `/api/v1/fitness_tracker/userfit/emails/${email}`;
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#userfit-gender-form').submit(function (event) {
+          event.preventDefault();
+          const gender = $('#userfit-gender').val();
+          window.location.href = `/api/v1/fitness_tracker/userfit/genders/${gender}`;
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#userfit-height-form').submit(function (event) {
+          event.preventDefault();
+          const minHeight = $('#minHeight').val();
+          const maxHeight = $('#maxHeight').val();
+          window.location.href = `/api/v1/fitness_tracker/userfit/heights/${minHeight}/${maxHeight}`;
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#userfit-weight-form').submit(function (event) {
+          event.preventDefault();
+          const minWeight = $('#minWeight').val();
+          const maxWeight = $('#maxWeight').val();
+          window.location.href = `/api/v1/fitness_tracker/userfit/weights/${minWeight}/${maxWeight}`;
+        });
+      });
+    </script>
+
+    <h4 text-align="left">Read Queries For Exercise Table</h4>
+    <ul>
+      <li><a href="http://localhost:3000/api/v1/fitness_tracker/exercises">View all Exercises</a></li>
+
+      <div class="form-container">
+        <li>
+          <form id="exercises-id-form">
+            <label for="exercise_id">Search Exercise By ID:</label>
+            <input type="text" id="exercise_id" name="exercise_id">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="exercises-category-form">
+            <label for="exercises-category">Search By Exercise Category:</label>
+            <input type="text" id="exercises-category" name="exercise_category">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="exercises-calories-form">
+            <label for="calories-search">Search Exercises By Calories:</label>
+            <label for="minCalories">Minimum Calories:</label>
+            <input type="number" id="minCalories" name="minCalories">
+            <label for="maxCalories">Maximum Calories:</label>
+            <input type="number" id="maxCalories" name="maxCalories">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <script>
+        $(document).ready(function () {
+          $('#exercises-id-form').submit(function (event) {
+            event.preventDefault();
+            const exercise_ids = $('#exercise_id').val();
+            window.location.href = `/api/v1/fitness_tracker/exercises/eid/${exercise_ids}`;
+          });
+        });
+      </script>
+
+      <script>
+        $(document).ready(function () {
+          $('#exercises-category-form').submit(function (event) {
+            event.preventDefault();
+            const exercise_category = $('#exercises-category').val();
+            window.location.href = `/api/v1/fitness_tracker/exercises/ecategory/${exercise_category}`;
+          });
+        });
+      </script>
+
+      <script>
+        $(document).ready(function () {
+          $('#exercises-calories-form').submit(function (event) {
+            event.preventDefault();
+            const minCalories = $('#minCalories').val();
+            const maxCalories = $('#maxCalories').val();
+            window.location.href = `/api/v1/fitness_tracker/exercises/ecalories/${minCalories}/${maxCalories}`;
+          });
+        });
+      </script>
+    </ul>
+
+    <h4 text-align="left">Read Queries For Workout Table</h4>
+    <ul>
+      <li><a href="http://localhost:3000/api/v1/fitness_tracker/workout">View all Workouts</a></li>
+
+      <div class="form-container">
+        <li>
+          <form id="workout-userid-form">
+            <label for="user_id">Search Exercise By ID:</label>
+            <input type="text" id="workout_user_id" name="workout_user_id">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="workouts-date-form">
+            <label for="workout_date">Search Workouts By Date:</label>
+            <input type="text" id="workout_date" name="workout_date" placeholder="yyyy-mm-dd"
+              pattern="\d{4}-\d{2}-\d{2}">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="workout-exerciseid-form">
+            <label for="exercise_id">Search Exercise By ID:</label>
+            <input type="text" id="workout_exercise_id" name="workout_exercise_id">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+    </ul>
+
+    <script>
+      $(document).ready(function () {
+        $('#workout-userid-form').submit(function (event) {
+          event.preventDefault();
+          const workout_userid = $('#workout_user_id').val();
+          window.location.href = `/api/v1/fitness_tracker/workout/wid/${workout_userid}`;
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#workouts-date-form').submit(function (event) {
+          event.preventDefault();
+          const workout_date = $('#workout_date').val();
+          window.location.href = `/api/v1/fitness_tracker/workout/date/${workout_date}`;
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#workout-exerciseid-form').submit(function (event) {
+          event.preventDefault();
+          const workout_exerciseid = $('#workout_exercise_id').val();
+          window.location.href = `/api/v1/fitness_tracker/workout/w_eid/${workout_exerciseid}`;
+        });
+      });
+    </script>
+
+
+
+    <h4 text-align="left">Read Queries For Workout and Exercise Table</h4>
+    <ul>
+      <li><a href="http://localhost:3000/api/v1/fitness_tracker/workoutexercise">View all Workouts</a></li>
+
+      <div class="form-container">
+        <li>
+          <form id="workoutexercise-sets-form">
+            <label for="sets">Search via Number of Sets:</label>
+            <input type="text" id="workoutexercise_sets" name="workoutexercise_sets">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="workoutexercise-reps-form">
+            <label for="reps">Search via Number of Reps:</label>
+            <input type="text" id="workoutexercise_reps" name="workoutexercise_reps">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <div class="form-container">
+        <li>
+          <form id="workout-wid_eid-form">
+            <label for="the_form">Search via Workout ID and Exercise ID:</label>
+            <label for="w_id">Workout ID:</label>
+            <input type="text" id="w_id" name="w_id">
+            <label for="e_id">Exercise ID:</label>
+            <input type="text" id="e_id" name="e_id">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+        </li>
+      </div>
+
+      <script>
+        $(document).ready(function () {
+          $('#workoutexercise-sets-form').submit(function (event) {
+            event.preventDefault();
+            const workout_sets = $('#workoutexercise_sets').val();
+            window.location.href = `/api/v1/fitness_tracker/workoutexercise/sets/${workout_sets}`;
+          });
+        });
+      </script>
+      <script>
+        $(document).ready(function () {
+          $('#workoutexercise-reps-form').submit(function (event) {
+            event.preventDefault();
+            const workout_reps = $('#workoutexercise_reps').val();
+            window.location.href = `/api/v1/fitness_tracker/workoutexercise/reps/${workout_reps}`;
+          });
+        });
+      </script>
+
+      <script>
+        $(document).ready(function () {
+          $('#workout-wid_eid-form').submit(function (event) {
+            event.preventDefault();
+            const workout_id = $('#w_id').val();
+            const exercise_id = $('#e_id').val();
+            window.location.href = `/api/v1/fitness_tracker/workoutexercise/wid_eid/${workout_id}/${exercise_id}`;
+          });
+        });
+      </script>
+    </ul>
+</body>
+
+</html>
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>FITNESS TRACKER API</title>
+</head>
+<body style="background-color: #222222; color: white;">
+  <h1 class="text-center">Welcome to Fitness Tracker API!</h1>
+  <figure class="text-right">
+    <blockquote class="blockquote">
+      <p>A well-known quote, contained in a blockquote element.</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+  </figure>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <p>The following page fetches data from a database of serial_killers
+          , it uses nodejs, express, postgresql, view visions such as ejs and jquery
+          to yeild the output that you see.
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <p>You may also</p>
+      </div>
+    </div>
+  </div>
+  <p>Please choose an option:</p>
+  <ul>
+    <li><a href="http://localhost:3000/api/v1/fitness_tracker">View all serial killers</a></li>
+    <li>
+      <form id="fitness-tracker-form">
+        <label for="fitness-id">Search By your Fitness Tracker ID:</label>
+        <input type="text" id="fitness-id" name="id">
+        <button type="submit">Submit</button>
+      </form>
+    </li>
+    <li>
+      <form id="fitness-tracker-workoutid-form">
+        <label for="workout-id">Search By Serial Killer Country:</label>
+        <input type="text" id="workout-id" name="country">
+        <button type="submit">Submit</button>
+      </form>
+      </li>
+      <li>
+        <form id="serial-killer-year-form">
+          <label for="killer-year">Search By Years Active:</label>
+          <select id="killer-year" name="year">
+            <option value="1992">1992</option>
+            <option value="1969">1969</option>
+            <option value="1998">1998</option>
+            <option value="1992">1992</option>
+            <option value="1974">1974</option>
+            <option value="1967">1967</option>
+            <option value="1977">1977</option>
+            <option value="1999">1999</option>
+          </select>
+          <button type="submit">Submit</button>
+        </form>
+      </li>
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          $('#serial-killer-form').submit(function(event) {
+            event.preventDefault();
+            const id = $('#killer-id').val();
+            window.location.href = `/api/v1/serial_killers/${id}`;
+          });
+        });
+      </script>
+      <script>
+        $(document).ready(function(){
+          $('#serial-killer-country-form').submit(function(event){
+            event.preventDefault();
+            const country = $('#killer-country').val();
+            window.location.href = `/api/v1/serial_killers/country/${country}`;
+          })
+        })
+      </script>
+      <script>
+        $(document).ready(function(){
+          $('#serial-killer-year-form').submit(function(event){
+            event.preventDefault();
+            const years_active = $('#killer-year').val();
+            window.location.href = `/api/v1/serial_killers/year/${years_active}`;
+          });
+        });
+      </script>
+    </li>
+  </ul>
+</body>
+</html>
+-->

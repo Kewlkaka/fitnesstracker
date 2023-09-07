@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>FITNESS TRACKER API - Calorie Burned Calculator</title>
+</head>
+<body style="background-color: #222222; color: white;">
+  <h1 class="text-center">Fitness Tracker - Calculate Total Calories Burned</h1>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Workout ID</th>
+        <th>Total Calories Burned</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach((row) => { %>
+        <tr>
+            <td><%= row.username %></td>
+            <td><%= row.workout_id %></td>
+            <td><%= row.total_calories_burned %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
